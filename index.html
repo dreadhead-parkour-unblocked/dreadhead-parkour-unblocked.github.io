@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreadhead Parkour</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="logo">Dreadhead Parkour</h2>
+            <ul class="nav-list">
+                <li class="nav-elm"><a href="#">Puzzle</a></li>
+                <li class="nav-elm"><a href="#">Car</a></li>
+                <li class="nav-elm"><a href="#">Horror</a></li>
+                <li class="nav-elm"><a href="#">Sport</a></li>
+            </ul>
+        </div>
+    </header>
+    <main class="main">
+        <section id="home" class="hero-section">
+            <div class="container">
+                <h2 class="hero-title">Dreadhead Parkour</h2>
+                <div class="game-container">
+                    <div class="game-wrapper">
+                        <iframe
+                            id="hop-warp-game"
+                            src="about:blank"
+                            width="1208"
+                            height="680"
+                            frameborder="0"
+                            allowfullscreen
+                            style="display: none;">
+                        </iframe>
+                        <div id="game-overlay" class="game-overlay">
+                            <div class="play-button-container">
+                                <button id="play-button" class="play-button">
+                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                        <circle cx="30" cy="30" r="30" fill="rgba(100,255,218,0.9)"/>
+                                        <path d="M23 18L23 42L41 30L23 18Z" fill="#1a1a2e"/>
+                                    </svg>
+                                </button>
+                                <p class="play-text">Click to Play Dreadhead Parkour</p>
+                            </div>
+                        </div>
+                        <button id="fullscreen-button" class="fullscreen-button" style="display: none;">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M3 3H7V5H5V7H3V3ZM17 3V7H15V5H13V3H17ZM17 17H13V15H15V13H17V17ZM3 17V13H5V15H7V17H3Z" fill="white"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="game-info">
+                    <h3>Hop Warp – Puzzle Platformer Game</h3>
+                    <p>Hop Warp is a clever thinking puzzle game where your goal is to pass through tricky obstacles, collect all the stars, and reach the end of each level. You have a special ability: the power to teleport anywhere on the screen! But there's a catch—you can only use this ability a limited number of times, so every move must be carefully planned.</p>
+
+                    <p>To succeed, you'll need to strategize, think ahead, and solve puzzles while avoiding dangerous areas where teleportation isn't allowed. If you ever feel stuck, you can use hints to guide you in the right direction. With many unique levels and brain-teasing challenges, Hop Warp will keep you entertained while testing your problem-solving skills.</p>
+
+                    <div class="controls-features-container">
+                        <div class="game-controls">
+                            <h4>How to Play Hop Warp</h4>
+                            <ul class="controls-list">
+                                <li><strong>Move:</strong> A & D keys or Left & Right arrow keys</li>
+                                <li><strong>Teleport:</strong> Spacebar</li>
+                                <li><strong>Reset Level:</strong> R</li>
+                                <li><strong>Back:</strong> ESC</li>
+                            </ul>
+                        </div>
+
+                        <div class="game-features">
+                            <h4>Features</h4>
+                            <ul class="features-list">
+                                <li>Fun and challenging puzzle platformer gameplay</li>
+                                <li>Unique teleportation mechanic with limited uses</li>
+                                <li>Levels filled with stars, obstacles, and clever traps</li>
+                                <li>Playable on both desktop and mobile devices</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="play-free">
+                        <h4>Play for Free</h4>
+                        <p>Hop Warp is completely free to play online on both computer and mobile, so you can enjoy it anytime, anywhere.</p>
+                        <p><strong>Can you collect every star and complete all the levels in Hop Warp?</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="games" class="games-section">
+            <div class="container">
+                <h2 class="section-title">Other Games</h2>
+                <div id="games-grid" class="games-grid">
+                    <!-- Games will be loaded here by JavaScript -->
+                </div>
+                <div id="loading" class="loading">Loading games...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">🎮 Play Hop</h3>
+                    <p class="footer-description">Your ultimate destination for online games. Play hundreds of free games instantly!</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link" data-page="about">About Us</a></li>
+                        <li><a href="#" class="footer-link" data-page="contact">Contact Us</a></li>
+                        <li><a href="#" class="footer-link" data-page="privacy">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link" data-page="terms">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Play Hop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for legal pages -->
+    <div id="legal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body" class="modal-body">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
