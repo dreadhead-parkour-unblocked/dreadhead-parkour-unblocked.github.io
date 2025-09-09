@@ -2,7 +2,17 @@
 class GamePlatform {
   constructor() {
     this.games = [];
+    this.currentCategory = this.getCurrentCategory();
     this.init();
+  }
+
+  getCurrentCategory() {
+    const path = window.location.pathname;
+    if (path.includes('puzzle.html')) return 'Puzzle Games';
+    if (path.includes('adventure.html')) return 'Adventure Games';
+    if (path.includes('car.html')) return 'Driving Games';
+    if (path.includes('shooting.html')) return 'Shooting Games';
+    return 'all';
   }
 
   async init() {
@@ -27,6 +37,17 @@ class GamePlatform {
   }
 
   setupEventListeners() {
+    // Mobile menu toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+    }
+
     // Game card clicks
     document.addEventListener("click", (e) => {
       const gameCard = e.target.closest(".game-card");
@@ -67,6 +88,11 @@ class GamePlatform {
     // Show loading
     loading.classList.remove("hidden");
     gamesGrid.innerHTML = "";
+
+    // Filter games based on current category
+    const gamesToShow = this.currentCategory === 'all' 
+      ? this.games 
+      : this.games.filter(game => game.category === this.currentCategory);
 
     // Hide loading and render all games
     setTimeout(() => {

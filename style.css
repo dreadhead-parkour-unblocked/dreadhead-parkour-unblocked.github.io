@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -84,6 +84,45 @@ body {
   padding: 0.5rem;
 }
 
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(30, 30, 50, 0.95);
+    padding: 1rem 0;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 1rem 2rem;
+    border-radius: 0;
+  }
+
+  .nav-link:hover {
+    background: rgba(100, 255, 218, 0.1);
+  }
+}
+
 .hamburger {
   width: 25px;
   height: 3px;
@@ -113,11 +152,13 @@ body {
 /* Hero section */
 .hero-section {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
 }
 
 .hero-title {
   font-size: 2.5rem;
+  margin-bottom: 1rem;
   color: #64ffda;
   margin-bottom: 2rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -126,7 +167,8 @@ body {
 .game-container {
   background: rgba(30, 30, 50, 0.9);
   border-radius: 15px;
-  padding: 20px;
+  padding: 12px;
+  margin-bottom: 1.5rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   margin-bottom: 2rem;
   overflow: hidden;
@@ -138,8 +180,8 @@ body {
 .game-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1208px;
-  height: 680px;
+  max-width: 960px;
+  height: 540px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   border-radius: 10px;
   overflow: hidden;
@@ -222,11 +264,11 @@ body {
 .game-info {
   background: rgba(30, 30, 50, 0.9);
   border-radius: 10px;
-  padding: 2.5rem;
-  margin-top: 1rem;
+  padding: 1.5rem;
+  margin-top: 0.5rem;
   backdrop-filter: blur(10px);
   text-align: left;
-  max-width: 1100px;
+  max-width: 960px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid rgba(100, 255, 218, 0.2);
@@ -528,7 +570,7 @@ body {
   }
 
   .game-wrapper {
-    height: 400px;
+    height: 300px;
   }
 
   .play-text {
