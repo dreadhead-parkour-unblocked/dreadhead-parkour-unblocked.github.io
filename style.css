@@ -149,6 +149,33 @@ body {
   padding: 2rem 0;
 }
 
+/* Game page specific styles */
+.game-section {
+  padding: 0;
+}
+
+.game-section .game-container {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+.game-section .game-wrapper {
+  max-width: none;
+  width: 100%;
+  height: 85vh;
+  border-radius: 0;
+  background: #000;
+}
+
+#game-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #000;
+  display: block;
+}
+
 /* Hero section */
 .hero-section {
   text-align: center;
@@ -571,6 +598,10 @@ body {
 
   .game-wrapper {
     height: 300px;
+  }
+
+  .game-section .game-wrapper {
+    height: 75vh;
   }
 
   .play-text {

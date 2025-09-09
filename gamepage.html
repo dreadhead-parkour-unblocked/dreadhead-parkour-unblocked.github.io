@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Game - Dreadhead Parkour</title>
+    <link rel="icon" type="image/png" href="https://play-lh.googleusercontent.com/5HX-jzTrtP-J8uu6TiX4FF0JWpJjae50a3QvswgfbKc3GiHEalWzm4b846GpiB4Hx22L">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Dreadhead Parkour Unblocked</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="puzzle.html" class="nav-link">Puzzle</a>
+                </li>
+                <li class="nav-item">
+                    <a href="adventure.html" class="nav-link">Adventure</a>
+                </li>
+                <li class="nav-item">
+                    <a href="car.html" class="nav-link">Car</a>
+                </li>
+                <li class="nav-item">
+                    <a href="shooting.html" class="nav-link">Shooting</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <section id="game" class="game-section">
+            <div class="game-container">
+                <div class="game-wrapper">
+                    <iframe id="game-frame" frameborder="0" allowfullscreen allow="fullscreen; autoplay"></iframe>
+                    <button id="fullscreen-button" class="fullscreen-button" title="Toggle Fullscreen">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="#64ffda" d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="container">
+                <div class="game-info">
+                    <h3 id="game-title">Loading game...</h3>
+                    <div class="game-description" id="game-description"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">🎮 Play Hop</h3>
+                    <p class="footer-description">Your ultimate destination for online games. Play hundreds of free games instantly!</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link" data-page="about">About Us</a></li>
+                        <li><a href="#" class="footer-link" data-page="contact">Contact Us</a></li>
+                        <li><a href="#" class="footer-link" data-page="privacy">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link" data-page="terms">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Play Hop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for legal pages -->
+    <div id="legal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body" class="modal-body">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Get game info from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const gameUrl = urlParams.get('url');
+        const gameName = urlParams.get('name');
+        const gameDescription = urlParams.get('description');
+
+        // Load game if parameters are present
+        if (gameUrl && gameName) {
+            document.title = `${gameName} - Dreadhead Parkour`;
+            document.getElementById('game-title').textContent = gameName;
+            document.getElementById('game-description').textContent = gameDescription || '';
+            document.getElementById('game-frame').src = gameUrl;
+        } else {
+            window.location.href = 'index.html';
+        }
+
+        // Fullscreen button functionality
+        document.getElementById('fullscreen-button').addEventListener('click', () => {
+            const gameWrapper = document.querySelector('.game-wrapper');
+            if (!document.fullscreenElement) {
+                if (gameWrapper.requestFullscreen) {
+                    gameWrapper.requestFullscreen();
+                } else if (gameWrapper.webkitRequestFullscreen) {
+                    gameWrapper.webkitRequestFullscreen();
+                } else if (gameWrapper.msRequestFullscreen) {
+                    gameWrapper.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

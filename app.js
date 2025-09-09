@@ -53,15 +53,16 @@ class GamePlatform {
       const gameCard = e.target.closest(".game-card");
       if (gameCard) {
         const gameUrl = gameCard.dataset.url;
+        const gameName = gameCard.dataset.name;
+        const gameDescription = gameCard.dataset.description;
         if (gameUrl) {
-          // Check if it's an external URL or local path
-          if (gameUrl.startsWith("http://") || gameUrl.startsWith("https://")) {
-            window.open(gameUrl, "_blank");
-          } else {
-            // For local games, you might want to handle them differently
-            // or ensure the path is correct
-            window.open(gameUrl, "_blank");
-          }
+          e.preventDefault();
+          const params = new URLSearchParams({
+            url: gameUrl,
+            name: gameName,
+            description: gameDescription || ''
+          });
+          window.location.href = `gamepage.html?${params.toString()}`;
         }
       }
     });
@@ -115,7 +116,9 @@ class GamePlatform {
     const card = document.createElement("div");
     card.className = "game-card";
     card.dataset.url = game.url;
-    card.dataset.name = game.name; // Add game name for debugging
+    card.dataset.name = game.name;
+    card.dataset.category = game.category;
+    card.dataset.description = game.description || '';
     card.title = game.name;
 
     card.innerHTML = `
@@ -186,6 +189,27 @@ class GamePlatform {
 
       // Show fullscreen button
       fullscreenButton.style.display = "block";
+    }
+  }
+
+  loadGameInFrame(gameUrl, gameName) {
+    const gameOverlay = document.getElementById("game-overlay");
+    const gameFrame = document.getElementById("hop-warp-game");
+    const fullscreenButton = document.getElementById("fullscreen-button");
+
+    if (gameOverlay && gameFrame && fullscreenButton) {
+      // Hide overlay
+      gameOverlay.style.display = "none";
+      
+      // Update game frame
+      gameFrame.src = gameUrl;
+      gameFrame.style.display = "block";
+      
+      // Show fullscreen button
+      fullscreenButton.style.display = "block";
+      
+      // Update page title
+      document.title = `${gameName} - Dreadhead Parkour`;
     }
   }
 
